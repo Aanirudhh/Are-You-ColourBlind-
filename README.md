@@ -1,16 +1,63 @@
-# React + Vite
+# Color Guess Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun browserbased game where you memorize a color and try to recreate it using a color picker. Built with React + Vite.
 
-Currently, two official plugins are available:
+## How to Play
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. A random color fills your screen memorize it (you have 5 seconds!)
+2. The color disappears now recreate it using the HSL color picker
+3. Submit your guess and see how close you were
+4. Your score is based on how accurately you matched the color
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Full screen color memorization with a live countdown timer
+- Interactive HSL color picker using `react-colorful`
+- Score calculated using RGB color distance
+- [react-colorful](https://github.com/omgovich/react-colorful) — lightweight color picker
 
-## Expanding the ESLint configuration
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- npm
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Install & Run
+
+```bash
+# Clone the repo
+git clone https://github.com/YOUR_USERNAME/color-app.git
+cd color-app
+
+# Install dependencies
+npm install
+
+# Start the dev server
+npm run dev
+```
+
+Then open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+## Project Structure
+
+```
+color-app/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── App.jsx            # Root component
+│   ├── ColorGuess.jsx     # Main game logic & UI
+│   ├── ColorGuess.css     # Game styles
+│   └── main.jsx           # Entry point
+├── index.html
+├── vite.config.js
+└── package.json
+```
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
