@@ -1,0 +1,249 @@
+/* ── reset ───────────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── fullscreen base ─────────────────────────────────────────────────────── */
+.cg-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+/* ── memorize overlay ────────────────────────────────────────────────────── */
+.cg-fullscreen-overlay {
+  text-align: center;
+}
+
+.cg-fullscreen-countdown {
+  font-size: 96px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: monospace;
+  line-height: 1;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.cg-fullscreen-hint {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 14px;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.cg-timer-track {
+  width: 180px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.cg-timer-fill {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  transition: width 1s linear;
+}
+
+/* ── guess layout ────────────────────────────────────────────────────────── */
+.cg-guess-layout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: background 0.05s ease;
+}
+
+/* ── palette panel (left side) ───────────────────────────────────────────── */
+.cg-palette-panel {
+  width: 320px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 14px;
+}
+
+.cg-panel-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── picker inside panel ─────────────────────────────────────────────────── */
+.cg-picker-row {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.cg-spectrum-wrap {
+  position: relative;
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: crosshair;
+  user-select: none;
+}
+
+.cg-spectrum-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cg-spectrum-cursor {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2.5px solid #fff;
+  box-shadow: 0 0 0 1.5px rgba(0, 0, 0, 0.4);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.cg-hue-wrap {
+  width: 20px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.cg-hue-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cg-hue-thumb {
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 10px;
+  border-radius: 3px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* ── panel footer ────────────────────────────────────────────────────────── */
+.cg-panel-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 4px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.15);
+}
+
+.cg-your-pick-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.cg-your-pick-label {
+  flex: 1;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── result overlay ──────────────────────────────────────────────────────── */
+.cg-result-overlay {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  min-width: 320px;
+}
+
+.cg-result-swatches {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.cg-result-swatch-col {
+  flex: 1;
+}
+
+.cg-result-swatch-col-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.cg-result-swatch {
+  height: 70px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cg-score-num {
+  font-size: 56px;
+  font-weight: 700;
+  font-family: monospace;
+  line-height: 1;
+}
+
+.cg-score-msg {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── button ──────────────────────────────────────────────────────────────── */
+.cg-btn {
+  padding: 9px 20px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+
+.cg-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.cg-btn--light {
+  padding: 10px 28px;
+  font-size: 14px;
+}
