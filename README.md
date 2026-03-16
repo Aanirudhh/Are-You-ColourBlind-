@@ -24,7 +24,7 @@ A fun browserbased game where you memorize a color and try to recreate it using 
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/Are-You-ColourBlind-.git
+git clone https://github.com/Aanirudhh/Are-You-ColourBlind-.git
 cd Are-You-ColourBlind-
 
 # Install dependencies
