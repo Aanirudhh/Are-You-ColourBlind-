@@ -42,22 +42,3 @@ Then open [http://localhost:5173](http://localhost:5173) in your browser.
 npm run build
 ```
 
-## Project Structure
-
-```
-color-app/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── App.jsx            # Root component
-│   ├── ColorGuess.jsx     # Main game logic & UI
-│   ├── ColorGuess.css     # Game styles
-│   └── main.jsx           # Entry point
-├── index.html
-├── vite.config.js
-└── package.json
-```
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
